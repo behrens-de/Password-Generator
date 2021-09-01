@@ -50,10 +50,7 @@ header{
   }
 }
 
-button{
-  margin: 20px 0;
-  padding: 20px 0;
-}
+
 .gray{
   background: #fff;
 }
@@ -113,4 +110,19 @@ textarea{
   height: 20px;
   background: var(--slider);
   cursor: pointer;
+}
+
+
+/* Button */
+button{
+  margin: 20px 0;
+  padding: 14px 0;
+  background-color: var(--slider-line);
+  border: none;
+  border-bottom: 3px solid rgba(0, 0, 0, .15);
+}
+
+button.success{
+  background-color: rgb(95, 191, 95);
+
 }

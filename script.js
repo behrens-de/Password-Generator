@@ -110,12 +110,21 @@ function renderPaswords() {
 }
 
 
+// Add to Clipboard
 const button = document.querySelector('.to-clipboard');
 button.addEventListener('click', textToClipboard);
 // Safe in clipboard
 function textToClipboard() {
   const text = document.querySelector('textarea').value;
   navigator.clipboard.writeText(text).then(function () {
+    let buttonText = button.innerText;
+    button.innerText = `✔ kopiert!`;
+    button.classList.add('success');
+    setTimeout(() => {
+      button.innerText = buttonText;
+      button.classList.remove('success');
+
+    }, 1000);
     console.log('Async: Copying to clipboard was successful!');
   }, function (err) {
     console.error('Async: Could not copy text: ', err);
