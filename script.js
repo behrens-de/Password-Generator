@@ -117,16 +117,20 @@ button.addEventListener('click', textToClipboard);
 function textToClipboard() {
   const text = document.querySelector('textarea').value;
   navigator.clipboard.writeText(text).then(function () {
-    let buttonText = button.innerText;
-    button.innerText = `✔ kopiert!`;
-    button.classList.add('success');
-    setTimeout(() => {
-      button.innerText = buttonText;
-      button.classList.remove('success');
-
-    }, 1000);
+    successClipboard('✔ kopiert!','success','to-clipboard');
     console.log('Async: Copying to clipboard was successful!');
   }, function (err) {
     console.error('Async: Could not copy text: ', err);
   });
+}
+
+function successClipboard(string, classname, buttonClass){
+  const button = document.querySelector('.'+buttonClass);
+  let buttonText = button.innerText;
+  button.innerText = string;
+  button.classList.add(classname);
+  setTimeout(() => {
+    button.innerText = buttonText;
+    button.classList.remove(classname);
+  }, 1000);
 }
